@@ -54,6 +54,51 @@ a {
 /* End Global Rules */
 
 /* Start Component */
+.main-title {
+  width: fit-content;
+  margin: 100px auto;
+  padding: 10px 20px;
+  border: 2px solid black;
+  font-size: 30px;
+  position: relative;
+  z-index: 1;
+  transition: var(--main-transition);
+}
+.main-title::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-color: var(--main-color);
+  position: absolute;
+  border-radius: 50%;
+  left: -30px;
+  top: 50%;
+  translate: 0 -50%;
+}
+.main-title:hover:before {
+  z-index: -1;
+  animation: left-move 0.5s linear forwards;
+}
+.main-title::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-color: var(--main-color);
+  position: absolute;
+  border-radius: 50%;
+  right: -30px;
+  top: 50%;
+  translate: 0 -50%;
+}
+.main-title:hover:after {
+  z-index: -1;
+  animation: right-move 0.5s linear forwards;
+}
+.main-title:hover {
+  color: white;
+  border: 2px solid white;
+  transition-delay: 0.5s;
+}
 /* End Component */
 
 /* Start Header */
@@ -182,19 +227,6 @@ a {
 .header .mega-menu .links li:not(:last-child) {
   border-bottom: 1px solid #e9e6e6;
 }
-/* WRONGE */
-/* @media (max-width: 767px) {
-  .header .mega-menu :nth-child(2) :last-child {               
-    border-bottom: 1px solid #e9e6e6;
-  }
-} */
-/* Right */
-/* @media (max-width: 767px) {
-  .header .mega-menu :nth-child(2) li:last-child {
-    border-bottom: 1px solid #e9e6e6;
-  }
-} */
-/* Right */
 @media (max-width: 767px) {
   .header .mega-menu .links:first-of-type li:last-child {
     border-bottom: 1px solid #e9e6e6;
@@ -332,6 +364,32 @@ a {
   40%,
   60% {
     transform: translateY(15px);
+  }
+}
+@keyframes left-move {
+  50% {
+    left: 0;
+    width: 12px;
+    height: 12px;
+  }
+  100% {
+    left: 0;
+    width: 50%;
+    height: 100%;
+    border-radius: 0;
+  }
+}
+@keyframes right-move {
+  50% {
+    right: 0;
+    width: 12px;
+    height: 12px;
+  }
+  100% {
+    right: 0;
+    width: 50%;
+    height: 100%;
+    border-radius: 0;
   }
 }
 /* End Animation */
