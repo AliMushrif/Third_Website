@@ -15,6 +15,9 @@
   --third-color: #fafafa;
   --main-transition: 0.3s;
   --text-color: #666;
+  --section-padding-top: 100px;
+  --section-padding-bottom: 100px;
+  --dark-background-color: #ececec;
 }
 html {
   box-sizing: border-box;
@@ -56,7 +59,7 @@ a {
 /* Start Component */
 .main-title {
   width: fit-content;
-  margin: 100px auto;
+  margin: 0 auto 80px;
   padding: 10px 20px;
   border: 2px solid black;
   font-size: 30px;
@@ -77,7 +80,7 @@ a {
 }
 .main-title:hover:before {
   z-index: -1;
-  animation: left-move 0.5s linear forwards;
+  animation: left-move var(--main-transition) linear forwards;
 }
 .main-title::after {
   content: "";
@@ -92,12 +95,12 @@ a {
 }
 .main-title:hover:after {
   z-index: -1;
-  animation: right-move 0.5s linear forwards;
+  animation: right-move var(--main-transition) linear forwards;
 }
 .main-title:hover {
   color: white;
-  border: 2px solid white;
-  transition-delay: 0.5s;
+  border: 2px solid var(--main-color);
+  transition-delay: var(--main-transition);
 }
 /* End Component */
 
@@ -141,6 +144,9 @@ a {
     margin: auto;
   }
 }
+.header .main-nav > li {
+  outline: none;
+}
 .header .main-nav > li > a {
   display: flex;
   justify-content: center;
@@ -152,6 +158,7 @@ a {
   padding: 0 30px;
   transition: var(--main-transition);
   overflow: hidden;
+  outline: none;
 }
 @media (max-width: 767px) {
   .header .main-nav > li > a {
@@ -269,7 +276,7 @@ a {
   top: -40px;
   width: 100%;
   height: 100%;
-  background-color: #ececec;
+  background-color: var(--dark-background-color);
   z-index: -1;
   transform: skewY(-6deg);
   transform-origin: top left;
@@ -342,6 +349,115 @@ a {
 }
 /* End Landing */
 
+/* Start Article */
+
+.articles {
+  padding-top: var(--section-padding-top);
+  padding-bottom: var(--section-padding-bottom);
+  position: relative;
+}
+.articles .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 40px;
+}
+.articles .box {
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  --webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  --moz-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  overflow: hidden;
+  border-radius: 6px;
+  transition: transform var(--main-transition),
+    box-shadow var(--main-transition);
+}
+.articles .box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+}
+.articles .box img {
+  max-width: 100%;
+}
+.articles .box .content {
+  padding: 20px;
+}
+.articles .box .content h3 {
+  margin: 0;
+}
+.articles .box .content p {
+  margin: 10px 0 0;
+  line-height: 1.5;
+  color: #777;
+}
+.articles .box .info {
+  padding: 20px;
+  border-top: 1px solid #e6e6e7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.articles .box a {
+  outline: none;
+  color: var(--main-color);
+  font-weight: bold;
+}
+.articles .box i {
+  color: var(--main-color);
+}
+.articles .box:hover i {
+  animation: moving-arrow 0.8s linear infinite;
+}
+
+/* End Article */
+
+/* Start Gallery */
+
+.gallery {
+  padding-top: var(--section-padding-top);
+  padding-bottom: var(--section-padding-bottom);
+  position: relative;
+  background-color: var(--dark-background-color);
+}
+.gallery .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 40px;
+}
+.gallery .box {
+  padding: 15px;
+  background-color: white;
+  box-shadow: 0px 12px 20px 0px rgba(0, 0, 0, 0.13),
+    0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+}
+.gallery .box .image {
+  position: relative;
+  overflow: hidden;
+}
+.gallery .box .image::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 0;
+  height: 0;
+  opacity: 0;
+  z-index: 2;
+}
+.gallery .box .image:hover:before {
+  animation: flashing 0.7s;
+}
+.gallery .box img {
+  max-width: 100%;
+  transition: var(--main-transition);
+}
+.gallery .box:hover .image img {
+  transform: rotate(5deg) scale(1.1);
+}
+
+/* End Gallery */
+
 /* Start Animation */
 @keyframes up-and-down {
   0%,
@@ -374,7 +490,7 @@ a {
   }
   100% {
     left: 0;
-    width: 50%;
+    width: 100%;
     height: 100%;
     border-radius: 0;
   }
@@ -387,9 +503,31 @@ a {
   }
   100% {
     right: 0;
-    width: 50%;
+    width: 100%;
     height: 100%;
     border-radius: 0;
+  }
+}
+@keyframes moving-arrow {
+  0% {
+    translate: -10px;
+  }
+  50% {
+    translate: 0;
+  }
+  100% {
+    translate: 10px;
+  }
+}
+@keyframes flashing {
+  0%,
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    width: 200%;
+    height: 200%;
   }
 }
 /* End Animation */
