@@ -1178,9 +1178,17 @@ a {
   font-weight: bold;
   font-size: 18px;
   margin: 10px 20px;
+  cursor: pointer;
+}
+.events form input[type="submit"]:hover {
+  background-color: var(--second-colo-alt);
+}
+.events form input[type="email"]::placeholder {
+  color: var(--main-color);
+  transition: var(--main-transition);
 }
 .events form input[type="email"]:focus::placeholder {
-  color: var(--main-color);
+  opacity: 0;
 }
 @media (max-width: 767px) {
   .events .form form {
@@ -1189,6 +1197,12 @@ a {
   .events form input[type="email"] {
     padding: 10px;
     max-width: 100%;
+    margin: 10px 10px;
+  }
+  .events form input[type="submit"] {
+    border-radius: 30px;
+    padding: 10px;
+    font-size: 16px;
     margin: 10px 10px;
   }
   .events .img-count .box {
@@ -1222,6 +1236,168 @@ a {
 }
 
 /* End Events */
+
+/* Start Plans */
+
+.plans {
+  padding-top: var(--section-padding-top);
+  padding-bottom: var(--section-padding-bottom);
+  position: relative;
+  background-color: var(--dark-background-color);
+}
+.dot-1 {
+  background-image: url(../Images/dots.png);
+  background-size: cover;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  right: 0;
+  top: 20%;
+}
+.dot-2 {
+  background-image: url(../Images/dots.png);
+  background-size: cover;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 0;
+  bottom: 20%;
+}
+.plans .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+.plans .container .box {
+  background-color: white;
+  position: relative;
+  border-radius: 6px;
+  box-shadow: 0px 0px 10px 4px #00000017;
+  z-index: 1;
+}
+.plans .container .box::before {
+  content: "";
+  background-color: #f6f6f6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 50%;
+  transition: var(--main-transition);
+  z-index: -1;
+}
+.plans .container .box:hover::before {
+  width: 100%;
+}
+.plans .container .box::after {
+  content: "";
+  background-color: #f6f6f6;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 50%;
+  transition: var(--main-transition);
+  z-index: -1;
+}
+.plans .container .box:hover::after {
+  width: 100%;
+}
+.plans .container .basic,
+.plans .container .prof {
+  transform: translateY(15px);
+}
+@media (max-width: 1199px) {
+  .plans .container .basic,
+  .plans .container .prof {
+    transform: translateY(0);
+  }
+}
+.plans .container .box header {
+  text-align: center;
+}
+.plans .container .box header h3 {
+  font-size: 26px;
+  font-weight: bold;
+  margin: 30px;
+  letter-spacing: -1px;
+}
+.plans .container .box header > img {
+  max-width: 70px;
+}
+.plans .container .box header p {
+  margin: 30px auto 20px;
+  font-size: 16px;
+  font-weight: normal;
+  color: var(--text-color);
+}
+.plans .container .box header span {
+  display: block;
+  font-size: 60px;
+  color: var(--main-color);
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.plans .container .label {
+  writing-mode: vertical-lr;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  background-color: var(--main-color);
+  padding: 10px 10px 40px;
+  position: absolute;
+  top: 0;
+  right: 10%;
+}
+.plans .container .label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border: 21px solid;
+  border-color: transparent transparent white transparent;
+  transition: var(--main-transition);
+}
+.plans .container .box:hover .label::before {
+  border-color: transparent transparent #f6f6f6 transparent;
+}
+.plans .container .box ul {
+  display: flex;
+  flex-direction: column;
+}
+.plans .container .box ul li {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--text-color);
+  border-top: 1px solid var(--dark-background-color);
+  padding: 20px;
+}
+.plans .container .box ul li::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f00c";
+  font-weight: 900;
+  color: var(--main-color);
+  margin-right: 10px;
+}
+.plans .container .box button {
+  display: block;
+  margin: 30px auto;
+  padding: 15px;
+  background-color: white;
+  color: var(--main-color);
+  border-radius: 6px;
+  border: 2px solid var(--main-color);
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.plans .container .box button:hover {
+  background-color: var(--main-color);
+  color: white;
+}
+
+/* End Plans */
 
 /* Start Animation */
 @keyframes up-and-down {
