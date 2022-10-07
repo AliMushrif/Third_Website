@@ -1093,12 +1093,18 @@ a {
   background-color: white;
   z-index: 1;
 }
+.events .img-count .box:hover {
+  border: 1px solid var(--main-color);
+}
 .events .img-count .box h3 {
   padding: 20px 25px;
   border-bottom: 1px solid #d4d4d4;
   font-size: 30px;
   font-weight: 800;
   color: var(--main-color);
+}
+.events .img-count .box:hover h3 {
+  border-bottom: 1px solid var(--main-color);
 }
 .events .img-count .box p {
   font-size: 14px;
@@ -1137,15 +1143,22 @@ a {
 }
 .events .form {
   display: flex;
+  flex-wrap: nowrap;
   justify-content: center;
   margin: 40px auto 0;
+  max-width: 100%;
 }
 .events .form form {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
   background-color: #f6f5f5;
-  max-width: 600px;
-  padding: 20px auto;
+  width: 700px;
+  width: 100%;
+  padding: 10px 20px;
   border-radius: 60px;
   z-index: 1;
+  flex-wrap: nowrap;
 }
 .events form input[type="email"] {
   caret-color: var(--main-color);
@@ -1154,7 +1167,7 @@ a {
   border: none;
   margin: 10px 20px;
   border-radius: 40px;
-  width: 400px;
+  width: 500px;
 }
 .events form input[type="submit"] {
   background-color: var(--main-color);
@@ -1164,27 +1177,19 @@ a {
   padding: 15px;
   font-weight: bold;
   font-size: 18px;
+  margin: 10px 20px;
 }
 .events form input[type="email"]:focus::placeholder {
   color: var(--main-color);
 }
-@media (max-width: 991px) {
-  .events .container .img-count {
-    flex-direction: column;
-  }
-  .dot-1,
-  .dot-2 {
-    display: none;
-  }
-}
 @media (max-width: 767px) {
+  .events .form form {
+    width: 100%;
+  }
   .events form input[type="email"] {
     padding: 10px;
-    max-width: 200px;
+    max-width: 100%;
     margin: 10px 10px;
-  }
-  .events form input[type="submit"] {
-    padding: 10px;
   }
   .events .img-count .box {
     border: 1px solid #d4d4d4;
@@ -1204,6 +1209,15 @@ a {
   .events .img-count .box p {
     font-size: 14px;
     padding: 8px 0;
+  }
+}
+@media (max-width: 991px) {
+  .events .container .img-count {
+    flex-direction: column;
+  }
+  .dot-1,
+  .dot-2 {
+    display: none;
   }
 }
 
