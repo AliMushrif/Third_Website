@@ -1070,9 +1070,10 @@ a {
   gap: 40px;
 }
 .events .container .img-count > img {
-  width: 500px;
+  width: 450px;
   max-width: 100%;
   padding: 20px;
+  z-index: 1;
 }
 .events .container .img-count .counters {
   display: flex;
@@ -1089,6 +1090,8 @@ a {
   text-align: center;
   border-radius: 6px;
   margin-right: 10px;
+  background-color: white;
+  z-index: 1;
 }
 .events .img-count .box h3 {
   padding: 20px 25px;
@@ -1139,8 +1142,10 @@ a {
 }
 .events .form form {
   background-color: #f6f5f5;
-  padding: 20px 40px;
+  max-width: 600px;
+  padding: 20px auto;
   border-radius: 60px;
+  z-index: 1;
 }
 .events form input[type="email"] {
   caret-color: var(--main-color);
@@ -1158,9 +1163,48 @@ a {
   color: white;
   padding: 15px;
   font-weight: bold;
+  font-size: 18px;
 }
 .events form input[type="email"]:focus::placeholder {
   color: var(--main-color);
+}
+@media (max-width: 991px) {
+  .events .container .img-count {
+    flex-direction: column;
+  }
+  .dot-1,
+  .dot-2 {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .events form input[type="email"] {
+    padding: 10px;
+    max-width: 200px;
+    margin: 10px 10px;
+  }
+  .events form input[type="submit"] {
+    padding: 10px;
+  }
+  .events .img-count .box {
+    border: 1px solid #d4d4d4;
+    text-align: center;
+    border-radius: 6px;
+    margin-right: 5px;
+    background-color: white;
+    z-index: 1;
+  }
+  .events .img-count .box h3 {
+    padding: 15px 20px;
+    border-bottom: 1px solid #d4d4d4;
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--main-color);
+  }
+  .events .img-count .box p {
+    font-size: 14px;
+    padding: 8px 0;
+  }
 }
 
 /* End Events */
