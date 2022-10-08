@@ -1787,8 +1787,8 @@ a {
 .footer .container .img {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(78px, 1fr));
-  align-items: center;
   gap: 5px 0;
+  align-content: center;
 }
 .footer .container .box > img {
   width: 78px;
