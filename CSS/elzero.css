@@ -1737,18 +1737,25 @@ a {
   flex-direction: column;
   justify-content: flex-start;
 }
-.footer .container .link a {
+.footer .container .link div {
   margin-bottom: 20px;
-  color: #b9b9b9;
   border-bottom: 1px solid var(--text-color);
   padding-bottom: 15px;
 }
-.footer .container .link a::before {
+.footer .container .link div > a {
+  color: #b9b9b9;
+  transition: var(--main-transition);
+  display: block;
+}
+.footer .container .link div > a::before {
   font-family: "Font Awesome 5 Free";
   content: "\F101";
   font-weight: 900;
   margin-right: 10px;
   color: var(--main-color);
+}
+.footer .container .link div > a:hover {
+  transform: translateX(10px);
 }
 .footer .container .icon ul {
   display: flex;
